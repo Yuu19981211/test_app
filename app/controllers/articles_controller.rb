@@ -14,7 +14,6 @@ class ArticlesController < ApplicationController
         if @article.save
             flash[:notice] = "Article was created successfully"
             redirect_to article_path(@article)
-            #do something
         else
             render 'new'
         end
@@ -38,7 +37,6 @@ class ArticlesController < ApplicationController
     end
     
     def destroy
-        
         @article.destroy
         flash[:notice] = "Deleted!"
         redirect_to articles_path
