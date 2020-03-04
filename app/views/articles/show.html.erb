@@ -1,11 +1,12 @@
-<h1>Showing the selected article</h1>
+<h2 align= "center" > Title: <%=@article.title%> </h2>
 
-<p>
-    Title: <%=@article.title%>
-</p>
-
-<p>
-    Descriptiom: <%=@article.description%>
-</p>
-
-<%=link_to "Back to the list", articles_path%>
+<div class = "well col-xs-8 col-xs-offset-2">
+    <h4 class = "center description"><strong>Description:</strong> </h4>
+    <hr>
+    <%= simple_format(@article.description)%>
+    <div class = "article-actions">
+    <%=link_to"Edit this article", edit_article_path(@article) class: "btn btn-xs btn-primary"%>
+    <%=link_to"Delete this article",articles_path(@artivcle), method: :delete, deta:{confirm: Are you sure?}, class: "btn btn-xs btn-danger" %>
+    <%=link_to"All articles", articles_path class: "btn btn-xs btn-sucess"%>
+</div>
+</div>
