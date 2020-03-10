@@ -9,6 +9,8 @@
             <div class = "article_title">
                 <li><%=link_to user.username, user_path(user) %></li>
                 <li><small><%=pluralize(user.article.count, "article") if user.articles%></small></li>
+                <%if logged_in and current_user.admin?%>
+                <li><%=link_to "Deleted", user_path(user), method: :delete, deta{confirm "Are you sure?"}%</li>
             </div>
             </div>
         </div>
