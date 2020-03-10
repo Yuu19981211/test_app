@@ -14,10 +14,11 @@
                last updated<%=time_ago_in_words(article.updated_at)%> ago
             </small>
         </div>
-   <div class = "article-actions">
-    <%=link_to"Edit this article", edit_article_path(@article) class: "btn btn-xs btn-primary"%>
-    <%=link_to"Delete this article",articles_path(@artivcle), method: :delete, deta:{confirm: Are you sure?}, class: "btn btn-xs btn-danger" %>
-   </div>
-   </div>
-</div>
+    <%if logged_in? == current_user && article.user%>
+       <div class = "article-actions">
+        <%=link_to"Edit this article", edit_article_path(@article) class: "btn btn-xs btn-primary"%>
+        <%=link_to"Delete this article",articles_path(@artivcle), method: :delete, deta:{confirm: Are you sure?}, class: "btn btn-xs btn-danger" %>
+       </div>
+       </div>
+    </div>
     <%end%>
