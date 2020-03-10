@@ -47,4 +47,11 @@ private
      def set_user
         @user = User.new(user_params)
     end
+    
+    def require_same_user
+        if !logged_in &&current_user = @article.user
+            flash[:danger] = "You can only edit on your account"
+            redirect_to root_path
+        end
+    end
 end
