@@ -1,5 +1,8 @@
 class Categoty < ActiveRecord
     
+    has_many :article_categories
+    has_many :categories, through: :article_categories
+    
     validates :name,  present:true,  length:{minimum:3, maximum:25}
     validates_uniqueness_of :name
 end
