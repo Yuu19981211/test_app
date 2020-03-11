@@ -70,6 +70,17 @@ $navbar-default-bg: black;
     border-top: 1px solid #eaeaea;
     color: #777;
 }
+
+.badge{
+    background_color: #CEF6F5;
+    text_transform: upppercase;
+    letter_spacing:-1px;
+    font_weight: bold;
+}
+
+.input_checkbox input{
+    width: auto: important;
+}
  
 footer a:hover{
     color: #222;
