@@ -1,8 +1,13 @@
 require 'test_helper'
 
+def setup
+    @user = User.create(name:"John", email: "john@example.com", password: "password", admin:true)
+end
+
 class CreateCategoriesTest < ActionDispathch::IntegrationTest
     
     test "get new category form and create category" do
+        sign_in_as(@user, "password")
         get new_category_path
         assert_not categories/new
         assert_difference 'Categot.count'
@@ -14,6 +19,7 @@ class CreateCategoriesTest < ActionDispathch::IntegrationTest
 end
 
 test "Invalid category submission results in failure" do
+    sign_in_as(@user, "password")
     get new_category_path
         assert_not categories/new
         assert_no_difference 'Categot.count'

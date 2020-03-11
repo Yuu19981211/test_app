@@ -5,6 +5,7 @@ class CategoriesControllerTest < ActionDispathch::IntegrationTest
     
     def setup
         @category = Category.create(name: "sports")
+        @user = User.create(name:"John", email: "john@example.com", password: "password", admin:true)
     end
     
     test "should get categories index" do
@@ -13,6 +14,7 @@ class CategoriesControllerTest < ActionDispathch::IntegrationTest
     end
     
     test "should get new" do
+        sign_in_as(@user, "password")
         get :new
          get new_category_path
     end
